@@ -5,7 +5,7 @@ require_once 'sidebar.html';
 
 <h2>Praktikum 3</h2>
 <div class="container">
-        <h2>Form Registrasi Nurul Fikri</h2>
+    <h2>Form Registrasi Nurul Fikri</h2>
 
     <form method = "POST">
     <div class="form-group row">
