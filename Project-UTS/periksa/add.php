@@ -2,7 +2,7 @@
 require_once 'header.php';
 require_once 'sidebar.php';
 
-require '../dbkoneksi.php';
+require '../koneksi.php';
 if (isset($_POST['submit'])) {
     $_tanggal = $_POST['tanggal'];
     $_berat = $_POST['berat'];
