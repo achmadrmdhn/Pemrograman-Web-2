@@ -7,11 +7,9 @@
 
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
+    <!-- Control Sidebar Content -->
 </aside>
-<!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
+<!-- Control Sidebar End -->
 
 <!-- jQuery -->
 <script src="../plugins/jquery/jquery.min.js"></script>
@@ -24,5 +22,4 @@
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
 </body>
-
 </html>

@@ -1,11 +1,19 @@
 <?php
-// Konfigurasi database
-$host = 'localhost'; // Ganti sesuai dengan host Anda
-$dbname = 'dbpuskesmas'; // Ganti dengan nama database Anda
-$user = 'root'; // Ganti dengan nama pengguna database Anda
-$pass = ''; // Ganti dengan kata sandi database Anda
 
-$dsn = "mysql:host=$host;dbname=$dbname";
+$host = 'localhost';
+$user = 'root';
+$password = '';
+$db = 'puskesmas';
+$charset = 'utf8mb4';
 
-// Buat koneksi Database
-$dbh = new PDO($dsn, $user, $pass);
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+
+$opt = [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES => false,
+];
+
+$dbh = new PDO($dsn, $user, $password, $opt);
+
+?>

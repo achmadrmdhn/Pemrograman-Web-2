@@ -7,6 +7,7 @@ $query = "SELECT * FROM pasien";
 
 // eksekusi query dengan PDO
 $pasiens =  $dbh->query($query)
+
 ?>
 
 <!DOCTYPE html>
@@ -54,6 +55,7 @@ $pasiens =  $dbh->query($query)
         <?php endforeach; ?>
     </table>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js
+"></script>
 </body>
 </html>

@@ -2,11 +2,11 @@
 require_once 'header.php';
 require_once 'sidebar.php';
 
-require '../dbkoneksi.php';
+require '../koneksi.php';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    // Query untuk mengambil data periksa berdasarkan id
+    // Query Untuk Mengambil Data Berdasarkan ID
     $sql = "SELECT * FROM periksa WHERE id = ?";
     $stmt = $dbh->prepare($sql);
     $stmt->execute([$id]);
@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
     $_pasien_id = $_POST['pasien_id'];
     $_dokter_id = $_POST['dokter_id'];
     $data = [$_tanggal, $_berat, $_tinggi, $_tensi, $_keterangan, $_pasien_id, $_dokter_id, $id];
-    // Query SQL untuk update data periksa berdasarkan id
+    // Query Untuk Mengupdate Data Berdasarkan ID
     $sql = "UPDATE periksa SET tanggal = ?, berat = ?, tinggi = ?, tensi = ?, keterangan = ?, pasien_id = ?, dokter_id = ? WHERE id = ?";
     $stmt = $dbh->prepare($sql);
     if ($stmt->execute($data)) {
@@ -42,23 +42,22 @@ if (isset($_POST['submit'])) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Menu Edit Data - Form Periksa</h1>
+                    <h1>Data Periksa</h1>
                 </div>
             </div>
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
+    <!-- End -->
 
     <!-- Main content -->
     <section class="content">
-
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <!-- Default box -->
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Form Periksa</h3>
-
+                            <h3 class="card-title">Edit Data Periksa</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                                     <i class="fas fa-minus"></i>
@@ -69,7 +68,7 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
                         <div class="card-body">
-                            <h2 class="text-center">Form Periksa</h2>
+                            <h2 class="text-center"></h2>
                             <form action="edit.php?id=<?= $row['id'] ?>" method="POST">
                                 <div class="form-group row">
                                     <label for="tanggal" class="col-4 col-form-label">Tanggal Pemeriksaan Pasien</label>
@@ -137,22 +136,21 @@ if (isset($_POST['submit'])) {
                                     </div>
                                 </div>
                             </form>
-
                         </div>
-                        <!-- /.card-body -->
+                        <!-- card-body end -->
                         <div class="card-footer">
-                            Project 1 - Aplikasi CRUD Sederhana Puskesmas
+                            <!-- Buat footer -->
                         </div>
-                        <!-- /.card-footer-->
+                        <!-- card-footer end-->
                     </div>
-                    <!-- /.card -->
+                    <!-- card end -->
                 </div>
             </div>
         </div>
     </section>
-    <!-- /.content -->
+    <!-- content end -->
 </div>
-<!-- /.content-wrapper -->
+<!-- content-wrapper end -->
 
 <?php
 require_once 'footer.php';

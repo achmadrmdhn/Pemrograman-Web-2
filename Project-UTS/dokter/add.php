@@ -14,11 +14,10 @@ if (isset($_POST['submit'])) {
     $_unit_kerja_id = $_POST['unit_kerja_id'];
     $data = [$_nama, $_gender, $_tmp_lahir, $_tgl_lahir, $_kategori, $_telpon, $_alamat, $_unit_kerja_id];
 
-    // Query SQL untuk update data dokter berdasarkan id
+    // Query untuk mengupdate data dokter berdasarkan id
     $sql = "INSERT INTO dokter (nama, gender, tmp_lahir, tgl_lahir, kategori, telpon, alamat, unit_kerja_id) VALUES (? ,? ,? ,? ,? ,? ,? ,?)";
 
     $stmt = $dbh->prepare($sql);
-    // var_dump($stmt);die;
 
     if ($stmt->execute($data)) {
         // Jika eksekusi query berhasil
@@ -40,12 +39,12 @@ if (isset($_POST['submit'])) {
                     <h1>Menu Tambah Data - Form Dokter</h1>
                 </div>
             </div>
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
+    <!-- End -->
 
     <!-- Main content -->
     <section class="content">
-
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
@@ -53,7 +52,6 @@ if (isset($_POST['submit'])) {
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Form Dokter</h3>
-
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                                     <i class="fas fa-minus"></i>
@@ -64,7 +62,7 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
                         <div class="card-body">
-                            <h2 class="text-center">Form Dokter</h2>
+                            <h2 class="text-center"></h2>
                             <form action="add.php" method="POST">
                                 <div class="form-group row">
                                     <label for="nama" class="col-4 col-form-label">Nama</label>
@@ -93,18 +91,17 @@ if (isset($_POST['submit'])) {
                                         <input id="tgl_lahir" name="tgl_lahir" type="date" class="form-control">
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <label for="kategori" class="col-4 col-form-label">Kategori</label>
                                     <div class="col-8">
                                         <select id="kategori" name="kategori" class="custom-select">
                                             <?php
-                                            // Mendapatkan nilai-nilai enum dari kolom kategori
+                                            // Mendapatkan nilai enum dari kolom kategori
                                             $enumValues = $dbh->query("SHOW COLUMNS FROM dokter LIKE 'kategori'")->fetch(PDO::FETCH_ASSOC)['Type'];
                                             preg_match_all("/'(.*?)'/", $enumValues, $matches);
                                             $enumOptions = $matches[1];
 
-                                            // Loop untuk membuat opsi-opsi dropdown
+                                            // Loop untuk membuat opsi dropdown
                                             foreach ($enumOptions as $option) {
                                                 echo "<option value='$option'>$option</option>";
                                             }
@@ -144,22 +141,21 @@ if (isset($_POST['submit'])) {
                                     </div>
                                 </div>
                             </form>
-
                         </div>
-                        <!-- /.card-body -->
+                        <!-- card-body end -->
                         <div class="card-footer">
-                            Project 1 - Aplikasi CRUD Sederhana Puskesmas
+                            <!-- Buat footer -->
                         </div>
-                        <!-- /.card-footer-->
+                        <!-- card-footer end-->
                     </div>
-                    <!-- /.card -->
+                    <!-- card end -->
                 </div>
             </div>
         </div>
     </section>
-    <!-- /.content -->
+    <!-- content end -->
 </div>
-<!-- /.content-wrapper -->
+<!-- content-wrapper end -->
 
 <?php
 require_once 'footer.php';

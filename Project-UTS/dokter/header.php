@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!$_SESSION['user']) {
+    header('location: login/login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +35,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="../index.php" class="nav-link">Home</a>
+                    <a href="../dashboard.php" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="../pasien" class="nav-link">Pasien</a>
@@ -64,7 +71,16 @@
                         </form>
                     </div>
                 </li>
-
+                <!-- Navbar Seacrh End -->
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link" role="button">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+                <!-- Logout End -->
             </ul>
         </nav>
-        <!-- /.navbar -->
+        <!-- Navbar End -->
+</body>
+</html>

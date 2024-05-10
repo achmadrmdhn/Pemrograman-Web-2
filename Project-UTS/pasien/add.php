@@ -13,7 +13,9 @@ if (isset($_POST["submit"])) {
     $_alamat = $_POST['alamat'];
     $_kelurahan_id = $_POST['kelurahan_id'];
     $data = [$_kode, $_nama, $_tmp_lahir, $_tgl_lahir, $_gender, $_email, $_alamat, $_kelurahan_id];
+     // Query untuk mengupdate data berdasarkan ID
     $sql = "INSERT INTO pasien (kode, nama, tmp_lahir, tgl_lahir, gender, email, alamat, kelurahan_id) VALUES (?,? ,? ,? ,? ,? ,? ,?)";
+
     $stmt = $dbh->prepare($sql);
     if ($stmt->execute($data)) {
         // Jika eksekusi query berhasil
@@ -35,12 +37,12 @@ if (isset($_POST["submit"])) {
                     <h1>Tambah Data Pasien</h1>
                 </div>
             </div>
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
+    <!-- End -->
 
     <!-- Main content -->
     <section class="content">
-
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
@@ -48,7 +50,6 @@ if (isset($_POST["submit"])) {
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Form Pasien</h3>
-
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                                     <i class="fas fa-minus"></i>
@@ -59,7 +60,7 @@ if (isset($_POST["submit"])) {
                             </div>
                         </div>
                         <div class="card-body">
-                            <h2 class="text-center">Form Pasien</h2>
+                            <h2 class="text-center"></h2>
                             <form action="add.php" method="POST">
                                 <div class="form-group row">
                                     <label for="kode" class="col-4 col-form-label">Kode</label>
@@ -107,7 +108,7 @@ if (isset($_POST["submit"])) {
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="kelurahan_id" class="col-4 col-form-label">Kelurahan ID</label>
+                                    <label for="kelurahan_id" class="col-4 col-form-label">Kelurahan</label>
                                     <div class="col-8">
                                         <?php
                                         $sqljenis = "SELECT * FROM kelurahan";
@@ -131,20 +132,20 @@ if (isset($_POST["submit"])) {
                                 </div>
                             </form>
                         </div>
-                        <!-- /.card-body -->
+                        <!-- card-body end -->
                         <div class="card-footer">
-                            Project 1 - Aplikasi CRUD Sederhana Puskesmas
+                            <!-- Buat footer -->
                         </div>
-                        <!-- /.card-footer-->
+                        <!-- card-footer end-->
                     </div>
-                    <!-- /.card -->
+                    <!-- card end -->
                 </div>
             </div>
         </div>
     </section>
-    <!-- /.content -->
+    <!-- content end -->
 </div>
-<!-- /.content-wrapper -->
+<!-- content-wrapper end -->
 
 <?php
 require_once 'footer.php';

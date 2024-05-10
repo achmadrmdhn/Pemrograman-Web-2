@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!$_SESSION['user']) {
+    header('location: login/login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard Informasi - Puskesmas Ciriung</title>
     <link rel="shortcut icon" href="./dist/img/favicon_io/favicon.ico" type="image/x-icon">
-
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -18,17 +24,17 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-    <!-- Site wrapper -->
+    <!-- Site Wrapper -->
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <!-- Left navbar links -->
+            <!-- Left Navbar Links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index.php" class="nav-link">Home</a>
+                    <a href="dashboard.php" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="pasien" class="nav-link">Pasien</a>
@@ -41,7 +47,7 @@
                 </li>
             </ul>
 
-            <!-- Right navbar links -->
+            <!-- Right Navbar Links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
                 <li class="nav-item">
@@ -65,6 +71,14 @@
                     </div>
                 </li>
                 <!-- Navbar Search End -->
+                <!-- Logout -->
+                <li class="nav-item">
+                    <a href="./index.html" class="nav-link" role="button">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+                <!-- Logout End -->
             </ul>
         </nav>
         <!-- Navbar End -->

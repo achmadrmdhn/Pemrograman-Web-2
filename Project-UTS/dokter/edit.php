@@ -2,11 +2,11 @@
 require_once 'header.php';
 require_once 'sidebar.php';
 
-require '../dbkoneksi.php';
+require '../koneksi.php';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    // Query untuk mengambil data dokter berdasarkan id
+    // Query Untuk Mengambil Data Berdasarkan ID
     $sql = "SELECT * FROM dokter WHERE id = ?";
     $stmt = $dbh->prepare($sql);
     $stmt->execute([$id]);
@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
     $_unit_kerja_id = $_POST['unit_kerja_id'];
     $data = [$_nama, $_gender, $_tmp_lahir, $_tgl_lahir, $_kategori, $_telpon, $_alamat, $_unit_kerja_id, $id];
 
-    // Query SQL untuk update data dokter berdasarkan id
+    // Query Untuk Mengupdate Data Berdasarkan ID
     $sql = "UPDATE dokter SET nama = ?, gender = ?, tmp_lahir = ?, tgl_lahir = ?, kategori = ?, telpon = ?, alamat = ?, unit_kerja_id = ? WHERE id = ?";
 
     $stmt = $dbh->prepare($sql);
@@ -45,23 +45,22 @@ if (isset($_POST['submit'])) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Menu Edit Data - Form Dokter</h1>
+                    <h1>Data Dokter</h1>
                 </div>
             </div>
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
+    <!-- End -->
 
     <!-- Main content -->
     <section class="content">
-
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <!-- Default box -->
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Form Dokter</h3>
-
+                            <h3 class="card-title">Edit Data Dokter</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                                     <i class="fas fa-minus"></i>
@@ -72,7 +71,7 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
                         <div class="card-body">
-                            <h2 class="text-center">Form Dokter</h2>
+                            <h2 class="text-center"></h2>
                             <form action="edit.php?id=<?= $row['id'] ?>" method="POST">
                                 <div class="form-group row">
                                     <label for="nama" class="col-4 col-form-label">Nama</label>

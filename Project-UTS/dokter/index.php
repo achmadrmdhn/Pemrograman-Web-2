@@ -10,15 +10,15 @@ require_once 'sidebar.php';
     <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Menu Data Dokter</h1>
+                    <h1>Menu Dokter</h1>
                 </div>
             </div>
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
+    <!-- End -->
 
     <!-- Main content -->
     <section class="content">
-
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-12">
@@ -26,7 +26,6 @@ require_once 'sidebar.php';
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Tabel Dokter</h3>
-
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                                     <i class="fas fa-minus"></i>
@@ -50,54 +49,58 @@ require_once 'sidebar.php';
                                         <th>Kategori</th>
                                         <th>Telpon</th>
                                         <th>Alamat</th>
-                                        <th>Unit Kerja ID</th>
+                                        <th>Unit Kerja</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                    // Panggil file
-                                    require '../koneksi.php';
-                                    // Bikin Query SQL
-                                    $query = $dbh->query("SELECT * FROM dokter");
-                                    // Tampilkan data looping
-                                    foreach ($query as $row) {
-                                        echo "<tr>";
-                                        echo "<td>" . $row['id'] . "</td>";
-                                        echo "<td>" . $row['nama'] . "</td>";
-                                        echo "<td>" . $row['gender'] . "</td>";
-                                        echo "<td>" . $row['tmp_lahir'] . "</td>";
-                                        echo "<td>" . $row['tgl_lahir'] . "</td>";
-                                        echo "<td>" . $row['kategori'] . "</td>";
-                                        echo "<td>" . $row['telpon'] . "</td>";
-                                        echo "<td>" . $row['alamat'] . "</td>";
-                                        echo "<td>" . $row['unit_kerja_id'] . "</td>";
-                                        echo "<td>";
-                                        echo "<a href='edit.php?id=" . $row['id'] . "'><button class='btn btn-warning'>Edit</button></a>";
-                                        echo "<span class='mx-1'></span>"; 
-                                        echo "<a href='delete.php?id=" . $row['id'] . "' onclick='return confirm(\"Yakin Hapus Data?\")'><button class='btn btn-danger'>Delete</button></a>";
-                                        echo "</td>";
-                                        echo "</tr>";
-                                    }
-                                    ?>
+                                <?php
+                                // Memanggil DB
+                                require '../koneksi.php';
+                                // Membuat Query dengan JOIN antara tabel dokter dan unit_kerja
+                                $query = $dbh->query("
+                                    SELECT dokter.*, unit_kerja.nama AS nama_unit_kerja
+                                    FROM dokter
+                                    INNER JOIN unit_kerja ON dokter.unit_kerja_id = unit_kerja.id
+                                ");
+                                // Menampilkan Data
+                                foreach ($query as $row) {
+                                    echo "<tr>";
+                                    echo "<td>" . $row['id'] . "</td>";
+                                    echo "<td>" . $row['nama'] . "</td>";
+                                    echo "<td>" . $row['gender'] . "</td>";
+                                    echo "<td>" . $row['tmp_lahir'] . "</td>";
+                                    echo "<td>" . $row['tgl_lahir'] . "</td>";
+                                    echo "<td>" . $row['kategori'] . "</td>";
+                                    echo "<td>" . $row['telpon'] . "</td>";
+                                    echo "<td>" . $row['alamat'] . "</td>";
+                                    echo "<td>" . $row['nama_unit_kerja'] . "</td>"; // Menggunakan nama kolom relasi baru
+                                    echo "<td>";
+                                    echo "<a href='edit.php?id=" . $row['id'] . "'><button class='btn btn-primary'>Edit</button></a>";
+                                    echo "<span class='mx-1'></span>"; 
+                                    echo "<a href='delete.php?id=" . $row['id'] . "' onclick='return confirm(\"Yakin Hapus Data?\")'><button class='btn btn-danger'>Delete</button></a>";
+                                    echo "</td>";
+                                    echo "</tr>";
+                                }
+                            ?>
                                 </tbody>
                             </table>
                         </div>
-                        <!-- /.card-body -->
+                        <!-- card-body end -->
                         <div class="card-footer">
-                            Puskesmas Ciriung - Jl. Golf No. 48 Kel. Ciriung Kec. Cibinong Kab. Bogor
+                            <!-- Buat footer -->
                         </div>
-                        <!-- /.card-footer-->
+                        <!-- card-footer end-->
                     </div>
-                    <!-- /.card -->
+                    <!-- card end -->
                 </div>
             </div>
         </div>
     </section>
-    <!-- /.content -->
+    <!-- content end -->
 </div>
 
-<!-- /.content-wrapper -->
+<!-- content-wrapper end -->
 
 <?php
 require_once 'footer.php';
