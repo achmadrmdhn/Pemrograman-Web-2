@@ -1,0 +1,122 @@
+achm23138ti
+achm23138ti@student.nurulfikri.ac.id
+
+25130110223138
+
+
+Microsoft Windows [Version 10.0.22631.3447]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\achma>ssh achm23138ti@kreasi.nurulfikri.ac.id
+achm23138ti@kreasi.nurulfikri.ac.id's password:
+Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.4.0-173-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+  System information as of Fri May 10 21:03:29 WIB 2024
+
+  System load:                      0.4
+  Usage of /home:                   77.8% of 499.76GB
+  Memory usage:                     49%
+  Swap usage:                       0%
+  Processes:                        1288
+  Users logged in:                  43
+  IPv4 address for br-6ee10becb9b6: 172.27.27.6
+  IPv4 address for br-d9a348bd9722: 172.21.0.1
+  IPv4 address for docker0:         172.17.0.1
+  IPv4 address for eth0:            134.209.217.226
+  IPv4 address for eth0:            10.10.0.5
+  IPv6 address for eth0:            2604:a880:400:d0::220e:9001
+  IPv4 address for eth1:            10.116.0.2
+
+Expanded Security Maintenance for Applications is not enabled.
+
+125 updates can be applied immediately.
+48 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+14 additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+New release '22.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+achm23138ti@kreasi:~$ ls
+public_html
+achm23138ti@kreasi:~$ cd public_html/
+achm23138ti@kreasi:~/public_html$ git clone https://github.com/achmadrmdhn/Pemrograman-Web-2.git
+Cloning into 'Pemrograman-Web-2'...
+Username for 'https://github.com': achmadrmdhn
+Password for 'https://achmadrmdhn@github.com':
+remote: Enumerating objects: 2638, done.
+remote: Counting objects: 100% (408/408), done.
+remote: Compressing objects: 100% (337/337), done.
+remote: Total 2638 (delta 56), reused 387 (delta 48), pack-reused 2230
+Receiving objects: 100% (2638/2638), 57.84 MiB | 43.01 MiB/s, done.
+Resolving deltas: 100% (529/529), done.
+achm23138ti@kreasi:~/public_html$ ls
+'ARR Sports'           DAFM-RentalCar      Praktikum-12   adminlte     test-projek-uas
+'Contoh-Tugas Akhir'   Pemrograman-Web-2   Praktikum-9    index.html
+achm23138ti@kreasi:~/public_html$ mysql -u achm23138ti -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 96627
+Server version: 8.0.36-0ubuntu0.20.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| db_achm23138ti     |
+| information_schema |
+| performance_schema |
++--------------------+
+3 rows in set (0.05 sec)
+
+mysql> exit
+Bye
+achm23138ti@kreasi:~/public_html$ mysql -u achm23138ti -p db_achm23138ti < puskesmas.sql
+-bash: puskesmas.sql: No such file or directory
+achm23138ti@kreasi:~/public_html$ ls
+'ARR Sports'           DAFM-RentalCar      Praktikum-12   adminlte     test-projek-uas
+'Contoh-Tugas Akhir'   Pemrograman-Web-2   Praktikum-9    index.html
+achm23138ti@kreasi:~/public_html$ cd Pemrograman-Web-2
+achm23138ti@kreasi:~/public_html/Pemrograman-Web-2$ ls
+Praktikum-1  Praktikum-3  Praktikum-5  Praktikum-7  puskesmas
+Praktikum-2  Praktikum-4  Praktikum-6  Project-UTS  puskesmas-new
+achm23138ti@kreasi:~/public_html/Pemrograman-Web-2$ cd Project-UTS
+achm23138ti@kreasi:~/public_html/Pemrograman-Web-2/Project-UTS$ ls
+assets  dashboard.php  dokter  footer.php  images      js           login   periksa  puskesmas.sql  sidebar.php
+css     dist           fonts   header.php  index.html  koneksi.php  pasien  plugins  scss
+achm23138ti@kreasi:~/public_html/Pemrograman-Web-2/Project-UTS$ mysql -u achm23138ti -p db_achm23138ti < puskesmas.sql
+Enter password:
+achm23138ti@kreasi:~/public_html/Pemrograman-Web-2/Project-UTS$ nano koneksi.php
+
+achm23138ti@kreasi:~/public_html/Pemrograman-Web-2/Project-UTS$

@@ -59,7 +59,7 @@
           </div>
         </div>
         <div class="card-body">
-          Start creating your amazing application!
+          {{ $page_content }}
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
