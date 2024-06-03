@@ -34,8 +34,8 @@
             <label for="gender" class="col-4 col-form-label">Gender</label> 
             <div class="col-8">
             <select id="gender" name="gender" class="custom-select">
-                <option value="laki-laki">L</option>
-                <option value="perempuan">P</option>
+                <option value="L">Laki-Laki</option>
+                <option value="P">Perempuan</option>
             </select>
             </div>
         </div>

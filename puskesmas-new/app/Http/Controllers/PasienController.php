@@ -35,9 +35,9 @@ class PasienController extends Controller
             'nama' => 'required|string',
             'tmp_lahir' => 'required|string',
             'tgl_lahir' => 'required|date',
-            'gender' => 'required|enum',
+            'gender' => 'required|in:L,P',
             'email' => 'required|string',
-            'alamat' => 'required|text',
+            'alamat' => 'required|string',
             'kelurahan_nama' => 'required|string'
         ]);
 
@@ -50,7 +50,8 @@ class PasienController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $pasien = Pasien::find($id);
+        return view('admin.pasien.show', compact('pasien'));
     }
 
     /**

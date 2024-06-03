@@ -15,7 +15,6 @@
                 <th>Email</th>
                 <th>Alamat</th>
                 <th>Nama Kelurahan</th>
-                <th>Aksi</th>
             </tr>
             <tr>
                 <td>1</td>
