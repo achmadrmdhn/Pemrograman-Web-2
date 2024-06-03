@@ -29,9 +29,9 @@
                 <td>{{ $pasien->alamat }}</td>
                 <td>{{ $pasien->kelurahan_nama }}</td>
                 <td>
-                    <a href="{{ url('dashboard/pasien/show', $pasien->id) }}" class="text-primary"><i class="far fa-eye"></i> Lihat<a> |
-                    <a href="#" class="text-warning"><i class="far fa-edit"></i> Edit</a> |
-                    <a href="#" class="text-danger"><i class="far fa-trash-alt"></i> Hapus</a>
+                    <a href="{{ url('dashboard/pasien/show', $pasien->id) }}" class="btn btn-primary btn-sm"><i class="far fa-eye"></i> Lihat<a>
+                    <a href="#" class="btn btn-warning btn-sm"><i class="far fa-edit"></i> Edit</a>
+                    <a href="#" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i> Hapus</a>
                 </td>
             </tr>
             @endforeach
