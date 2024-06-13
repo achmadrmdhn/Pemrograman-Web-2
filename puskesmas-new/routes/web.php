@@ -34,23 +34,40 @@ Route::middleware('auth')->group(function () {
             Route::put('/update/{id}', [KelurahanController::class, 'update']);
             Route::delete('/destroy/{id}', [KelurahanController::class, 'destroy']);
         });
+
+        // Auth Pasien
+        Route::prefix('/pasien')->group(function () {
+            Route::get('/', [PasienController::class, 'index']);
+            Route::get('/create', [PasienController::class, 'create']);
+            Route::post('/store', [PasienController::class, 'store']);
+            Route::get('/show/{id}', [PasienController::class, 'show']);
+            Route::get('/edit/{id}', [PasienController::class, 'edit']);
+            Route::put('/update/{id}', [PasienController::class, 'update']);
+            Route::delete('/destroy/{id}', [PasienController::class, 'destroy']);
+        });
+    });
+    Route::prefix('contact')->group(function(){
+        Route::get('/', [ContactController::class, 'index']);
+    });
+    Route::prefix('about')->group(function(){
+        Route::get('/', [AboutController::class, 'index']);
     });
 });
 
 
 require __DIR__.'/auth.php';
 
-Route::get('/salam', function () {
-    return "Selamat Belajar Bareng Saya";
-});
+// Route::get('/salam', function () {
+//     return "Selamat Belajar Bareng Saya";
+// });
 
-Route::get('/beranda', function () {
-    return "Halaman Beranda";
-});
+// Route::get('/beranda', function () {
+//     return "Halaman Beranda";
+// });
 
-Route::get('/profile', function () {
-    return "Halaman Profile";
-});
+// Route::get('/profile', function () {
+//     return "Halaman Profile";
+// });
 
 // Praktikum Laravel 2
 // Route::get('/dashboard', [AdminController::class, 'index']);
