@@ -36,7 +36,7 @@ class KelurahanController extends Controller
         ]);
 
         kelurahan::create($validated);
-        return redirect('dashboard/kelurahan')->with('pesan', 'Data Berhasil Di Ubah');
+        return redirect('dashboard/kelurahan')->with('pesan', 'Data Berhasil Di Tambahkan');
     }
 
     /**
