@@ -46,7 +46,7 @@
             </a>
             <ul class="nav nav-treeview">
               @auth
-                @if ( Auth::user()->role == User::ROLE_ADMIN )
+                @if (Auth::user()->role == \App\Models\User::ROLE_ADMIN)
               <li class="nav-item">
                 <a href="/dashboard/pasien" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
