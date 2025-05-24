@@ -5,7 +5,6 @@
     <x-slot name="page_content">
     <form class="forms-sample" action="{{ url('dashboard/pasien/store') }}" method="POST">
         @csrf
-
         <div class="form-group row">
             <label for="kode" class="col-4 col-form-label">Kode Pasien</label> 
             <div class="col-8">
@@ -34,6 +33,7 @@
             <label for="gender" class="col-4 col-form-label">Gender</label> 
             <div class="col-8">
             <select id="gender" name="gender" class="custom-select">
+                <option value="">Pilih Gender</option>
                 <option value="L">Laki-Laki</option>
                 <option value="P">Perempuan</option>
             </select>
@@ -54,7 +54,7 @@
         <div class="form-group row">
             <label for="kelurahan_nama" class="col-4 col-form-label">Kelurahan</label> 
             <div class="col-8">
-            <input id="kelurahan_nama" name="kelurahan_nama" placeholder="Masukkan Kelurahan" type="text" class="form-control">
+            <input id="kelurahan_nama" name="kelurahan_nama" placeholder="Masukkan Nama Kelurahan" type="text" class="form-control">
             </div>
         </div> 
           <div class="form-group row">
